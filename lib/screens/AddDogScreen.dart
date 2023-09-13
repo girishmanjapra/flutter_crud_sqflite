@@ -1,4 +1,4 @@
-import 'package:dog_app/database_helper.dart';
+import 'package:dog_app/database/database_helper.dart';
 import 'package:flutter/material.dart';
 
 class AddDogScreen extends StatefulWidget {

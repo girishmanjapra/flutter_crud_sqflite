@@ -1,7 +1,7 @@
-import 'package:dog_app/database_helper.dart';
+import 'package:dog_app/database/database_helper.dart';
 import 'package:flutter/material.dart';
 
-import 'class_dog.dart';
+import '../models/class_dog.dart';
 
 class DogListScreen extends StatefulWidget {
   @override

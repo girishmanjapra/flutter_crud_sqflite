@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import 'class_dog.dart';
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -93,8 +91,6 @@ class DogListScreen extends StatefulWidget {
 class _DogListScreenState extends State<DogListScreen> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
-  List<Dog> _dogs = [];
-  final DatabaseHelper _dbHelper = DatabaseHelper();
 
   @override
   void initState() {
@@ -103,16 +99,7 @@ class _DogListScreenState extends State<DogListScreen> {
   }
 
   _loadDogs() async {
-    List<Map<String, dynamic>> dogs = await _dbHelper.getDogs();
-    setState(() {
-      _dogs = dogs
-          .map((data) => Dog(
-                id: data['id'],
-                name: data['name'],
-                age: data['age'],
-              ))
-          .toList();
-    });
+    setState(() {});
   }
 
   _clearTextFields() {
@@ -125,17 +112,10 @@ class _DogListScreenState extends State<DogListScreen> {
     int age = int.tryParse(_ageController.text.trim()) ?? 0;
 
     if (name.isNotEmpty && age > 0) {
-      Map<String, dynamic> dog = {
-        'name': name,
-        'age': age,
-      };
-      int dogId = await _dbHelper.insertDog(dog);
       _clearTextFields();
       _loadDogs();
     }
   }
-
- 
 
   @override
   Widget build(BuildContext context) {

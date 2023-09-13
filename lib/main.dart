@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'AddDogScreen.dart';
-import 'DogListScreen.dart';
-import 'EditDogScreen.dart';
+import 'screens/AddDogScreen.dart';
+import 'screens/DogListScreen.dart';
+import 'screens/EditDogScreen.dart';
 
 void main() {
   runApp(MyApp());
